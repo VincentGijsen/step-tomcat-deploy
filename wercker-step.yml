@@ -1,0 +1,9 @@
+name: tomcat-deploy
+version: 0.0.1
+author: Vincent Gijsen
+description: Deploy a war-file to a tomcat server
+keywords:
+  - tomcat
+  - warfile
+  - scp
+  - ssh
