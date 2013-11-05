@@ -27,5 +27,5 @@ Deploy a war file to tomcat, create context.xml and restarts tomcat
         war_file_source: $WAR_FILE_SOURCE_MANGEMENT
         war_file_destination: $WAR_FILE_DESTINATION_MANGEMENT
         context_descriptor_file: $CONTEXT_DESCRIPTOR_FILE_MANGEMENT
-        service_name: $MAPPING_MANGEMENT
+        servlet_path: $MAPPING_MANGEMENT
 ```
