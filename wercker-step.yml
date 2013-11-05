@@ -1,5 +1,5 @@
 name: tomcat-deploy
-version: 0.0.3
+version: 0.0.4-alpha
 description: Deploy a war-file to a tomcat server
 keywords:
   - tomcat
