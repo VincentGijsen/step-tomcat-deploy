@@ -10,13 +10,13 @@ Deploy a war file to tomcat, create context.xml and restarts tomcat
 
 
 # Options
-* deploy_host The host running tomcat/sshd
-* deploy_user (optional) The user (with sudo rights)
-* sshkey the ssh key used to authenticate as `deploy user`
-* war_file_source the path where to find the war-file (eg, after your build in target/)
-* war_file_destination where to deploy the war-file
-* context_descriptor_file the file used by tomcat to deploy the war under path `servlet_path`
-* service_name (optional) on ubuntu usually 'tomcat7' (Default)
+* `deploy_host` The host running tomcat/sshd
+* `deploy_user` _(optional)_ The user (with sudo rights)
+* `sshkey` the ssh key used to authenticate as `deploy user`
+* `war_file_source` the path where to find the war-file (eg, after your build in target/)
+* `war_file_destination` where to deploy the war-file
+* `context_descriptor_file` the file used by tomcat to deploy the war under path `servlet_path`
+* s`ervice_name` _(optional)_ on ubuntu usually 'tomcat7' (Default)
 
 
 # Example
