@@ -24,8 +24,8 @@ Deploy a war file to tomcat, create context.xml and restarts tomcat
 - vinietje/tomcat-deploy :
         deploy_host: $HOST
         sshkey: $PRIVATEKEY_PATH
-        war_file_source: $WAR_FILE_SOURCE_MANGEMENT
-        war_file_destination: $WAR_FILE_DESTINATION_MANGEMENT
-        context_descriptor_file: $CONTEXT_DESCRIPTOR_FILE_MANGEMENT
-        servlet_path: $MAPPING_MANGEMENT
+        war_file_source: $WAR_SRC
+        war_file_destination: $WAR_DST
+        context_descriptor_file: $CONTEXT_DESCRIPTOR_DST
+        servlet_path: $WAR_PATH
 ```
