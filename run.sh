@@ -48,11 +48,9 @@ cat << EOF > $tmp_context_file
 </Context>
 EOF
 
-info 'generated contect file locally';
+info 'generated context file locally';
 
 #copy the contextfile to the tomcat-server
-info "cmd : scp -i ${WERCKER_TOMCAT_DEPLOY_SSHKEY} $tmp_context_file ${USER}@${WERCKER_TOMCAT_DEPLOY_HOST:${WERCKER_TOMCAT_DEPLOY_CONTEXT_DESCRIPTOR_FILE}";
-
 result=$(scp -i ${WERCKER_TOMCAT_DEPLOY_SSHKEY} $tmp_context_file ${USER}@${WERCKER_TOMCAT_DEPLOY_HOST}:${WERCKER_TOMCAT_DEPLOY_CONTEXT_DESCRIPTOR_FILE})
 if [[ $? -ne 0 ]]; then
     warning '$result'
@@ -60,9 +58,6 @@ if [[ $? -ne 0 ]]; then
 else
     info 'copied context file to server';
 fi
-
-
-info 'target: scp -i ${WERCKER_TOMCAT_DEPLOY_SSHKEY} $WERCKER_TOMCAT_DEPLOY_WAR_FILE_SOURCE ${USER}@${WERCKER_TOMCAT_DEPLOY_HOST}:${WERCKER_TOMCAT_DEPLOY_WAR_FILE_DESTINATION}';
 
 result=$(scp -i ${WERCKER_TOMCAT_DEPLOY_SSHKEY} $WERCKER_TOMCAT_DEPLOY_WAR_FILE_SOURCE ${USER}@${WERCKER_TOMCAT_DEPLOY_HOST}:${WERCKER_TOMCAT_DEPLOY_WAR_FILE_DESTINATION})
 if [[ $? -ne 0 ]]; then
