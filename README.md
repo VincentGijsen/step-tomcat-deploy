@@ -1,13 +1,12 @@
 step-tomcat-deploy
 ==================
 
-This step deploy's a war file to tomcat, and restarts tomcat
-
-This is only tested on ubuntu-server 12.04 installation
+Deploy a war file to tomcat, create context.xml and restarts tomcat
 
 # Assumptions:
 * autoDeploy is enabled (default tomcat behaviour)
 * Both context dir and deploy dir exists and are writable by `deploy_user`
+* This is only tested on ubuntu-server 12.04 installation
 
 
 # Options
@@ -18,3 +17,15 @@ This is only tested on ubuntu-server 12.04 installation
 * war_file_destination where to deploy the war-file
 * context_descriptor_file the file used by tomcat to deploy the war under path `servlet_path`
 * service_name (optional) on ubuntu usually 'tomact7' (Default)
+
+
+# Example
+```yaml
+- vinietje/tomcat-deploy :
+        deploy_host: $HOST
+        sshkey: $PRIVATEKEY_PATH
+        war_file_source: $WAR_FILE_SOURCE_MANGEMENT
+        war_file_destination: $WAR_FILE_DESTINATION_MANGEMENT
+        context_descriptor_file: $CONTEXT_DESCRIPTOR_FILE_MANGEMENT
+        service_name: $MAPPING_MANGEMENT
+```

@@ -49,7 +49,7 @@ cat << EOF > $tmp_context_file
 EOF
 
 #copy the contextfile to the tomcat-server
-result=$(scp -i ${WERCKER_TOMCAT_DEPLOY_SSHKEY}  $tmp_context_file ${USER}@${WERCKER_TOMCAT_DEPLOY_HOST} )
+result=$(scp -i ${WERCKER_TOMCAT_DEPLOY_SSHKEY} $tmp_context_file ${USER}@${WERCKER_TOMCAT_DEPLOY_HOST} )
 if [[ $? -ne 0 ]]; then
     warning '$result'
     fail 'context file copy failed';
