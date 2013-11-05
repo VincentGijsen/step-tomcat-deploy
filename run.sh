@@ -2,8 +2,8 @@
 set -e
 
 #VARIABLE Checking
-if [ -z "$WERCKER_TOMCAT_DEPLOY_HOST" ]; then
-    fail 'missing host option, please add it in your wercker.yml'
+if [ -z "$WERCKER_TOMCAT_DEPLOY_DEPLOY_HOST" ]; then
+    fail 'missing "DEPLOY_HOST" option, please add it in your wercker.yml'
 fi
 
 USER="ubuntu"
@@ -12,23 +12,23 @@ if [ -n "$WERCKER_TOMCAT_DEPLOY_USER" ]; then
 fi
 
 if [ -z "$WERCKER_TOMCAT_DEPLOY_SSHKEY" ]; then
-    fail 'missing sshkey option, please add it in your wercker.yml'
+    fail 'missing "sshkey" option, please add it in your wercker.yml'
 fi
 
 if [ -z "$WERCKER_TOMCAT_DEPLOY_CONTEXT_DESCRIPTOR_FILE" ]; then
-    fail 'missing context_descriptor_file option, please add it in your wercker.yml'
+    fail 'missing "context_descriptor_file" option, please add it in your wercker.yml'
 fi
 
 if [ -z "$WERCKER_TOMCAT_DEPLOY_WAR_FILE_DESTINATION" ]; then
-    fail 'missing war_file_destination option, please add it in your wercker.yml'
+    fail 'missing "war_file_destination" option, please add it in your wercker.yml'
 fi
 
 if [ -z "$WERCKER_TOMCAT_DEPLOY_WAR_FILE_SOURCE" ]; then
-    fail 'missing war_file_source option, please add it in your wercker.yml'
+    fail 'missing "war_file_source" option, please add it in your wercker.yml'
 fi
 
 if [ -z "$WERCKER_TOMCAT_DEPLOY_SERVLET_PATH" ]; then
-    fail 'missing war_file_source option, please add it in your wercker.yml'
+    fail 'missing "war_file_source" option, please add it in your wercker.yml'
 fi
 
 SERVICE_NAME="tomcat7"
