@@ -48,22 +48,30 @@ cat << EOF > $tmp_context_file
 </Context>
 EOF
 
+info 'generated contect file locally';
+
 #copy the contextfile to the tomcat-server
 result=$(scp -i ${WERCKER_TOMCAT_DEPLOY_SSHKEY} $tmp_context_file ${USER}@${WERCKER_TOMCAT_DEPLOY_HOST} )
 if [[ $? -ne 0 ]]; then
     warning '$result'
     fail 'context file copy failed';
+else
+    info 'copied context file to server';
 fi
 
 result=$(scp -i ${WERCKER_TOMCAT_DEPLOY_SSHKEY} $WERCKER_TOMCAT_DEPLOY_WAR_FILE_SOURCE ${USER}@${WERCKER_TOMCAT_DEPLOY_HOST}:${WERCKER_TOMCAT_DEPLOY_WAR_FILE_DESTINATION} )
 if [[ $? -ne 0 ]]; then
     warning '$result'
     fail 'Failed to copy warfile to server';
+else
+    info 'copied war to server';
 fi
 
 result=$(ssh ${USER}@${WERCKER_TOMCAT_DEPLOY_HOST} -i ${WERCKER_TOMCAT_DEPLOY_SSHKEY} "sudo service $SERVICE_NAME restart")
 if [[ $? -ne 0 ]]; then
     warning '$result'
     fail 'Failed to restart tomcat';
+else
+    copied 'restarted tomcat service';
 fi
 
