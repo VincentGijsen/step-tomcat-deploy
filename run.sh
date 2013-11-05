@@ -51,9 +51,9 @@ EOF
 info 'generated contect file locally';
 
 #copy the contextfile to the tomcat-server
-info 'cmd : scp -i ${WERCKER_TOMCAT_DEPLOY_SSHKEY} $tmp_context_file ${USER}@${WERCKER_TOMCAT_DEPLOY_HOST:${WERCKER_TOMCAT_DEPLOY_CONTEXT_DESCRIPTOR_FILE}';
+info "cmd : scp -i ${WERCKER_TOMCAT_DEPLOY_SSHKEY} $tmp_context_file ${USER}@${WERCKER_TOMCAT_DEPLOY_HOST:${WERCKER_TOMCAT_DEPLOY_CONTEXT_DESCRIPTOR_FILE}";
 
-result=$(scp -i ${WERCKER_TOMCAT_DEPLOY_SSHKEY} $tmp_context_file ${USER}@${WERCKER_TOMCAT_DEPLOY_HOST:${WERCKER_TOMCAT_DEPLOY_CONTEXT_DESCRIPTOR_FILE})
+result=$(scp -i ${WERCKER_TOMCAT_DEPLOY_SSHKEY} $tmp_context_file ${USER}@${WERCKER_TOMCAT_DEPLOY_HOST}:${WERCKER_TOMCAT_DEPLOY_CONTEXT_DESCRIPTOR_FILE})
 if [[ $? -ne 0 ]]; then
     warning '$result'
     fail 'context file copy failed';
