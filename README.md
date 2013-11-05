@@ -16,7 +16,7 @@ Deploy a war file to tomcat, create context.xml and restarts tomcat
 * `war_file_source` the path where to find the war-file (eg, after your build in target/)
 * `war_file_destination` where to deploy the war-file
 * `context_descriptor_file` the file used by tomcat to deploy the war under path `servlet_path`
-* s`ervice_name` _(optional)_ on ubuntu usually 'tomcat7' (Default)
+* `service_name` _(optional)_ on ubuntu usually 'tomcat7' (Default)
 
 
 # Example
