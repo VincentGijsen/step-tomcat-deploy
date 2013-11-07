@@ -35,7 +35,7 @@ if [ -z "$WERCKER_TOMCAT_DEPLOY_SERVLET_PATH" ]; then
 fi
 
 if [ -n "$WERCKER_TOMCAT_DEPLOY_SERVICE_NAME" ]; then
-	service_name=$WERCKER_TOMCAT_DEPLOY_SERVICENAME
+	service_name=$WERCKER_TOMCAT_DEPLOY_SERVICE_NAME
 fi
 
 #remapping names
@@ -85,7 +85,7 @@ if [[ $? -ne 0 ]]; then
     warning '$result'
     fail 'Failed to restart tomcat';
 else
-    copied 'restarted tomcat service';
+    info 'restarted tomcat service';
 fi
 
 info 'completed sucessfully :)'
