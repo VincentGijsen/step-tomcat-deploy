@@ -14,8 +14,8 @@ if [ -n "$WERCKER_TOMCAT_DEPLOY_USER" ]; then
     remote_user=$WERCKER_TOMCAT_DEPLOY_USER
 fi
 
-if [ -z "$WERCKER_TOMCAT_DEPLOY_SSH_KEY" ]; then
-    fail 'missing "ssh_key" option, please add it in your wercker.yml'
+if [ -z "$WERCKER_TOMCAT_DEPLOY_SSHKEY" ]; then
+    fail 'missing "sshkey" option, please add it in your wercker.yml'
 fi
 
 if [ -z "$WERCKER_TOMCAT_DEPLOY_WAR_FILE_SOURCE" ]; then
@@ -40,7 +40,7 @@ fi
 
 #remapping names
 host=$WERCKER_TOMCAT_DEPLOY_HOST
-key=$WERCKER_TOMCAT_DEPLOY_SSH_KEY
+key=$WERCKER_TOMCAT_DEPLOY_SSHKEY
 war_src=$WERCKER_TOMCAT_DEPLOY_WAR_FILE_SOURCE
 war_dst=$WERCKER_TOMCAT_DEPLOY_WAR_FILE_DESTINATION
 ctx_file=$WERCKER_TOMCAT_DEPLOY_CONTEXT_DESCRIPTOR_FILE
