@@ -62,6 +62,11 @@ EOF
 
 info 'generated context file locally';
 
+#
+#
+#   Copying files in $home on remote server
+#
+
 #copy the contextfile to the tomcat-server
 result=$(scp -i "$key" "$tmp_context_file" "$remote_user@$host:~/${tmp_file_name}-context" )
 if [[ $? -ne 0 ]]; then
@@ -80,13 +85,19 @@ else
     info 'copied war to server';
 fi
 
+#
+#
+#   Moving files on destination servers (as result of sudo and scp)
+#
+
+
 #Move the CONTEXT file on the remote file to the proper location using sudo
 result=$(ssh "$remote_user@$host" -i "$key" "sudo mv ~/${tmp_file_name}-context $ctx_file" )
 if [[ $? -ne 0 ]]; then
     warning '$result'
-    fail 'Failed to copy warfile to server';
+    fail 'Failed to move context in right location';
 else
-    info 'copied war to server';
+    info 'Moved context in right location';
 fi
 
 
@@ -94,18 +105,24 @@ fi
 result=$(ssh "$remote_user@$host" -i "$key" "sudo mv ~/${tmp_file_name}-war $war_dst" )
 if [[ $? -ne 0 ]]; then
     warning '$result'
-    fail 'Failed to copy warfile to server';
+    fail 'Failed more war file in right location';
 else
-    info 'copied war to server';
+    info 'moved war in right location';
 fi
 
-#trigger restart tomcat
+
+
+#
+#   
+#   trigger restart tomcat
+#
+
 result=$(ssh "$remote_user@$host" -i "$key" "sudo service $service_name restart")
 if [[ $? -ne 0 ]]; then
     warning '$result'
-    fail 'Failed to restart tomcat';
+    fail 'Failed to restart $service_name';
 else
-    info 'restarted tomcat service';
+    info 'restarted $service_name service';
 fi
 
 info 'completed sucessfully :)'
