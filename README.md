@@ -23,7 +23,7 @@ Deploy a war file to tomcat, create context.xml and restarts tomcat
 ```yaml
 - vinietje/tomcat-deploy :
         host: $HOST
-        sshkey: $PRIVATEKEY_PATH
+        ssh_key: $PRIVATEKEY_PATH
         war_file_source: $WAR_SRC
         war_file_destination: $WAR_DST
         context_descriptor_file: $CONTEXT_DESCRIPTOR_DST
