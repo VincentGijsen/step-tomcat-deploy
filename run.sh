@@ -47,7 +47,7 @@ ctx_file=$WERCKER_TOMCAT_DEPLOY_CONTEXT_DESCRIPTOR_FILE
 srvlet_path=$WERCKER_TOMCAT_DEPLOY_SERVLET_PATH
 
 tmp_file_name_war="WERCKERFILE-war"
-tmp_file_name_ctx="WERCKERFILE-war"
+tmp_file_name_ctx="WERCKERFILE-ctx"
 
 #first deploy the (new) file
 deploy_path=`basename $ctx_file`
