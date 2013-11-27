@@ -49,6 +49,7 @@ srvlet_path=$WERCKER_TOMCAT_DEPLOY_SERVLET_PATH
 tmp_file_name_war="WERCKERFILE-war"
 tmp_file_name_ctx="WERCKERFILE-ctx"
 
+
 #first deploy the (new) file
 deploy_path=`basename $ctx_file`
 tmp_context_file=/tmp/`basename $deploy_path`
@@ -111,6 +112,16 @@ else
     info 'moved war in right location';
 fi
 
+#
+#
+#   Remove contents of cache-dir
+#
+result=$(ssh "$remote_user@$host" -i "$key" "sudo rm -rf /var/cache/tomcat7/*")
+if [[ $? -ne 0 ]]; then
+    fail 'Failed to remove cache-files tomcat: /var/cache/tomcat7/*, response: $result';
+else
+    info 'moved war in right location';
+fi
 
 
 #
